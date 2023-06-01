@@ -2,8 +2,35 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap");
 
+@font-face {
+  font-family: "Mija";
+  src: url("./assets/Mija.otf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Elena";
+  src: url("./assets/ElenaWebRegular5.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Elena";
+  src: url("./assets/ElenaWebBold.woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Elena";
+  src: url("./assets/ElenaWebRegularItalic.woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+
 body {
-  font-family: "Nunito Sans", sans-serif !important;
+  /* font-family: "Nunito Sans", sans-serif !important; */
+  font-family: "Elena" !important;
+
   color: #5b5866 !important;
 
   /* font-size: 15px !important; */
@@ -11,6 +38,7 @@ body {
 }
 .logo {
   color: #5b5866 !important;
+  font-family: "Martel", sans-serif !important;
 }
 
 /* @media (max-width: 1180px) {
@@ -63,7 +91,9 @@ svg {
   --lh-1-4: 1.4;
 
   /* colors */
-  --accent: #00a3ad;
+  /* --accent: #00a3ad; */
+  /* --accent: #f55b42; */
+  --accent: #067f7d;
   --bkg: 190 60% 98%;
   --text: 185 26% 9%;
   --muted: 183 8% 55%;
@@ -112,7 +142,7 @@ h6 {
   line-height: var(--lh-1);
   color: #4b5058 !important;
 
-  font-family: "Martel Sans", sans-serif !important;
+  font-family: "Mija" !important;
 }
 
 h1,

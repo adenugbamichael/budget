@@ -7,7 +7,7 @@ const Error = () => {
   const navigate = useNavigate()
   return (
     <div className='error'>
-      <h1>Un oh! We've got a problem.</h1>
+      <h1>Uh oh! We've got a problem.</h1>
       <p>{error.message || error.statusText}</p>
       <div className='flex-md'>
         <button onClick={() => navigate(-1)} className='btn btn--dark'>
