@@ -1,8 +1,9 @@
 import { Form } from "react-router-dom"
+
 // library
 import { UserPlusIcon } from "@heroicons/react/24/solid"
 
-// Assets
+// assets
 import illustration from "../assets/illustration.svg"
 
 const Intro = () => {
@@ -32,9 +33,8 @@ const Intro = () => {
           </button>
         </Form>
       </div>
-      <img src={illustration} alt='Money chart' width={500} />
+      <img src={illustration} alt='Person with money' width={600} />
     </div>
   )
 }
-
 export default Intro

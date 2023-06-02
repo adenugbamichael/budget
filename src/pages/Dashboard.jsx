@@ -1,16 +1,16 @@
-/* eslint-disable react-refresh/only-export-components */
 // rrd imports
 import { useLoaderData } from "react-router-dom"
 
-//  helper functions
-import { createBudget, fetchData, waait } from "../helpers"
+// library imports
+import { toast } from "react-toastify"
+
 // components
 import Intro from "../components/Intro"
 import AddBudgetForm from "../components/AddBudgetForm"
 import AddExpenseForm from "../components/AddExpenseForm"
 
-// library import
-import { toast } from "react-toastify"
+//  helper functions
+import { createBudget, createExpense, fetchData, waait } from "../helpers"
 
 // loader
 export function dashboardLoader() {
@@ -26,15 +26,16 @@ export async function dashboardAction({ request }) {
   const data = await request.formData()
   const { _action, ...values } = Object.fromEntries(data)
 
-  // new User submission
+  // new user submission
   if (_action === "newUser") {
     try {
       localStorage.setItem("userName", JSON.stringify(values.userName))
       return toast.success(`Welcome, ${values.userName}`)
     } catch (e) {
-      throw new Error("There was a creating your account")
+      throw new Error("There was a problem creating your account.")
     }
   }
+
   if (_action === "createBudget") {
     try {
       createBudget({
@@ -44,6 +45,19 @@ export async function dashboardAction({ request }) {
       return toast.success("Budget created!")
     } catch (e) {
       throw new Error("There was a problem creating your budget.")
+    }
+  }
+
+  if (_action === "createExpense") {
+    try {
+      createExpense({
+        name: values.newExpense,
+        amount: values.newExpenseAmount,
+        budgetId: values.newExpenseBudget,
+      })
+      return toast.success(`Expense ${values.newExpense} created!`)
+    } catch (e) {
+      throw new Error("There was a problem creating your expense.")
     }
   }
 }
@@ -63,7 +77,7 @@ const Dashboard = () => {
               <div className='grid-lg'>
                 <div className='flex-lg'>
                   <AddBudgetForm />
-                  <AddExpenseForm budget={budgets} />
+                  <AddExpenseForm budgets={budgets} />
                 </div>
               </div>
             ) : (
