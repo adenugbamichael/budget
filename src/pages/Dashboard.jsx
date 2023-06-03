@@ -8,6 +8,7 @@ import { toast } from "react-toastify"
 import Intro from "../components/Intro"
 import AddBudgetForm from "../components/AddBudgetForm"
 import AddExpenseForm from "../components/AddExpenseForm"
+import BudgetItem from "../components/BudgetItem"
 
 //  helper functions
 import { createBudget, createExpense, fetchData, waait } from "../helpers"
@@ -70,7 +71,13 @@ const Dashboard = () => {
       {userName ? (
         <div className='dashboard'>
           <h1>
-            Welcome back, <span className='accent'>{userName}</span>
+            Welcome back,{" "}
+            <span
+              // className='accent'
+              style={{ color: "#067f7d" }}
+            >
+              {userName}
+            </span>
           </h1>
           <div className='grid-sm'>
             {budgets && budgets.length > 0 ? (
@@ -78,6 +85,12 @@ const Dashboard = () => {
                 <div className='flex-lg'>
                   <AddBudgetForm />
                   <AddExpenseForm budgets={budgets} />
+                </div>
+                <h2>Existing Budgets</h2>
+                <div className='budgets'>
+                  {budgets.map((budget) => (
+                    <BudgetItem key={budget.id} budget={budget} />
+                  ))}
                 </div>
               </div>
             ) : (

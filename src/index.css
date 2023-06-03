@@ -58,7 +58,6 @@ body {
 /*  */
 /*  */
 /*  */
-
 /* ⚠️ CSS optimized for the tutorial, not for expanding to a larger site. ⚠️ */
 
 *,
@@ -91,9 +90,7 @@ svg {
   --lh-1-4: 1.4;
 
   /* colors */
-  /* --accent: #00a3ad; */
-  /* --accent: #f55b42; */
-  --accent: #067f7d;
+  --accent: 183 74% 44%;
   --bkg: 190 60% 98%;
   --text: 185 26% 9%;
   --muted: 183 8% 55%;
@@ -101,6 +98,7 @@ svg {
   --warning: 4 66% 63%;
 
   /* utils */
+
   --space-xs: 8px;
   --space-sm: 16px;
   --space-md: 24px;
@@ -114,10 +112,12 @@ svg {
   --round-full: 100vmax;
 
   /* toast customizations */
-  --toastify-color-success: var(--accent);
+  --toastify-color-success: hsl(var(--accent));
 }
 
 body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: var(--fs-400);
   line-height: var(--lh-1-4);
   font-weight: 400;
@@ -139,9 +139,8 @@ h4,
 h5,
 h6 {
   font-weight: 800;
+  font-weight: bold;
   line-height: var(--lh-1);
-  color: #4b5058 !important;
-
   font-family: "Mija" !important;
 }
 
@@ -172,7 +171,7 @@ p {
 /* color utils */
 
 .accent {
-  color: var(--accent);
+  color: hsl(var(--accent));
 }
 
 .muted {
@@ -183,7 +182,7 @@ p {
 
 :where(a, .btn) {
   --color: hsl(var(--text));
-  --backdrop: var(--accent);
+  --backdrop: hsl(var(--accent));
   font: inherit;
   color: var(--color);
   border-radius: var(--round-sm);
@@ -426,9 +425,9 @@ select {
 
 :is(input, select):focus {
   outline: none;
-  border-color: var(--accent);
-  -webkit-box-shadow: 0 0 0 1px var(--accent);
-  box-shadow: 0 0 0 1px var(--accent);
+  border-color: #067f7d;
+  -webkit-box-shadow: 0 0 0 1px #067f7d;
+  box-shadow: 0 0 0 1px #067f7d;
 }
 
 /* Intro */
@@ -632,7 +631,7 @@ table {
 }
 
 tr:nth-child(odd) {
-  background-color: var(--accent) / 0.04;
+  background-color: hsl(var(--accent) / 0.04);
 }
 
 td {
@@ -657,7 +656,7 @@ table .btn {
 table a {
   text-decoration: none;
   color: hsl(var(--bkg));
-  background-color: var(--accent);
+  background-color: hsl(var(--accent));
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--round-full);
 }
