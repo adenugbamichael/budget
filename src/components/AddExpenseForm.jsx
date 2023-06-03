@@ -28,7 +28,10 @@ const AddExpenseForm = ({ budgets }) => {
     <div className='form-wrapper'>
       <h2 className='h3'>
         Add New{" "}
-        <span className='accent'>
+        <span
+          // className='accent'
+          style={{ color: "#067f7d" }}
+        >
           {budgets.length === 1 && `${budgets.map((budg) => budg.name)}`}
         </span>{" "}
         Expense
